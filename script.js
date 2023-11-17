@@ -1,24 +1,30 @@
-let getUserChoice = userConvertedChoice(prompt(" Pick one!:Rock,Paper,Scissor"));
+
+let numberOfGames = prompt("How Many rounds do you want?")
+
+for(let i = 1; i <= numberOfGames;i++)
+{
+	alert(`Round ${i}`)
+	let getUserChoice = userConvertedChoice(prompt(`Round: ${i} Pick one!:Rock,Paper,Scissor`));
 let getComputerChoice =  randomizer()
-let gameLevels = prompt("How Many rounds do you want?")
-
-playGame(getUserChoice,getComputerChoice, showResults)
-
+console.log(`Round ${i}`)
+  	playGame(getUserChoice,getComputerChoice, showResults)
+  	console.log("")
+}
 
 
 
 function playGame(getUserChoice,getComputerChoice,callback)
-{
-	callback(getUserChoice,getComputerChoice)
-}
+	{
+		callback(getUserChoice,getComputerChoice)
+	}
 
 function showResults(user,computer)
 {
-	console.log(user)
-	console.log(computer)
+	console.log(`USER:${user}`)
+	console.log(`COMPUTER:${computer}`)
  if(user.length === computer.length)
  {
- 	console.log(`Hey ${user} ${computer} it's a draw!  `)
+ 	console.log(`Hey ${user} X ${computer} it's a draw!  `)
  }
  else if (!(user.length === computer.length))
  {
@@ -98,3 +104,5 @@ function userConvertedChoice(pick)
 		alert(`${pick} is not in the options -_-`)
 	}
 }
+
+
